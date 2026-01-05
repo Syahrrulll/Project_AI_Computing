@@ -33,7 +33,7 @@ async def call_ai_chat(messages: List[Dict[str, str]], max_tokens: Optional[int]
     payload: Dict[str, Any] = {
         "model": MODEL_NAME,
         "messages": messages,
-        "temperature": 0.8 # Sedikit dinaikkan agar lebih kreatif/luwes
+        "temperature": 0.5
     }
     if max_tokens:
         payload["max_tokens"] = max_tokens
@@ -94,6 +94,7 @@ class ChatRequest(BaseModel):
 @app.get("/")
 def health_check():
     return {"status": "running", "persona": "Friendly HRD"}
+    print("Test Running")
 
 @app.post("/analyze-cv")
 async def analyze_cv(request: AnalyzeRequest):
@@ -142,6 +143,7 @@ async def chat_interview(request: ChatRequest):
     1. Bersikaplah ramah, suportif, namun tetap profesional (seperti wawancara tatap muka).
     2. Gunakan Bahasa Indonesia yang mengalir dan natural (luwes). HINDARI gaya bahasa kaku/robotik.
     3. Jangan ragu memberikan apresiasi singkat (misal: "Menarik sekali", "Jawaban yang bagus") sebelum bertanya lagi.
+    4. Kalau ditanya terkait hal yang tidak cocok dengan topik, jawab saja tidak tahu karena anda adalah HRD yang profesional dan tegas, lalu setelah menjawab tidak,  ajak kembali ke topik utama (Wawancara)
     
     [KONTEKS DOKUMEN]
     {request.context}
