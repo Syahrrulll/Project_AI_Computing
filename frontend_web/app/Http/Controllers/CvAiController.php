@@ -10,7 +10,7 @@ use Smalot\PdfParser\Parser;
 class CvAiController extends Controller
 {
     // URL Backend Python (Pastikan main.py/ai_backend.py sudah berjalan di port 8001)
-    protected $aiUrl = 'http://127.0.0.1:8001';
+    protected $aiUrl = 'https://backend-ai-rosy.vercel.app';
 
     /**
      * Halaman Utama (Upload)
