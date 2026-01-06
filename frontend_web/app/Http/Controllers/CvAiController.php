@@ -88,7 +88,6 @@ class CvAiController extends Controller
         }
     }
 
-    // Method lainnya tetap sama...
     public function showResult()
     {
         if (!Session::has('analysis_result')) return redirect()->route('home');
